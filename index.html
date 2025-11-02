@@ -14,6 +14,15 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2GZYHXZNB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-P2GZYHXZNB');
+  </script>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
@@ -167,39 +176,4 @@
       const basePerGram = inrPerGram24k * purity;
 
       // making charges
-      const making = basePerGram * (makingPct / 100);
-      // GST: 3% on gold + 5% on making
-      const gst = (basePerGram * 0.03) + (making * 0.05);
-
-      const finalPerGram = basePerGram + making + gst;
-
-      // outputs
-      document.getElementById('perGram').textContent = formatINR(finalPerGram);
-      document.getElementById('per10g').textContent = formatINR(finalPerGram * 10);
-      document.getElementById('perTola').textContent = formatINR(finalPerGram * CONSTS.TOLA_G);
-
-      document.getElementById('liveMeta').textContent =
-        'Using mock spot: $' + MOCK_SPOT_USD_OZ + '/oz, USD/INR=' + MOCK_USD_INR + '. In Phase 3 this will be real-time.';
-    }
-
-    function formatINR(n) {
-      return new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0
-      }).format(n);
-    }
-
-    document.getElementById('recalc').addEventListener('click', function (e) {
-      e.preventDefault();
-      recalc();
-    });
-
-    document.getElementById('yr').textContent = new Date().getFullYear();
-
-    // first run
-    recalc();
-  </script>
-</body>
-
-</html>
+      const making = basePe
